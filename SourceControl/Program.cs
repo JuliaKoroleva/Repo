@@ -8,8 +8,15 @@ namespace SourceControl
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
+            using (var c = new Context())
+            {
+                var NewSong = c.songs.FirstOrDefault(s => s.Artist.ArtistName == "The Beatles");
+                Console.WriteLine(NewSong.Name, NewSong.Duration);
+            };
+
+            
         }
     }
 }
